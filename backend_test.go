@@ -3,13 +3,13 @@ package log_test
 import (
 	"bytes"
 	"fmt"
-	"sort"
 	"strconv"
 	"strings"
 	"sync"
 	"testing"
 
 	"github.com/Patagonicus/log"
+	"github.com/Patagonicus/log/legacy"
 )
 
 const goroutineCount = 20
@@ -69,7 +69,7 @@ func TestBackend(t *testing.T) {
 		lines = append(lines, line{r, i})
 	}
 
-	sort.Slice(lines, func(a, b int) bool {
+	legacy.Slice(lines, func(a, b int) bool {
 		if lines[a].routine == lines[b].routine {
 			return lines[a].index < lines[b].index
 		}

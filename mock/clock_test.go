@@ -2,10 +2,10 @@ package mock_test
 
 import (
 	"fmt"
-	"sort"
 	"testing"
 	"time"
 
+	"github.com/Patagonicus/log/legacy"
 	"github.com/Patagonicus/log/mock"
 )
 
@@ -62,7 +62,7 @@ func TestConcurrent(t *testing.T) {
 		result = append(result, (<-ch)...)
 	}
 
-	sort.Slice(result, func(i, j int) bool {
+	legacy.Slice(result, func(i, j int) bool {
 		return result[i].Before(result[j])
 	})
 
