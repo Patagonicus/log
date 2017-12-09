@@ -69,8 +69,6 @@ func TestFields_Update(t *testing.T) {
 }
 
 func checkFieldsEqual(t *testing.T, a, b log.Fields) {
-	t.Helper()
-
 	if len(a) != len(b) {
 		t.Errorf("has %d entries, expected %d", len(b), len(a))
 	}
